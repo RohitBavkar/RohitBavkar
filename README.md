@@ -1,5 +1,5 @@
 
-<h1 align="center">Hi 👋, I'm Rohit Bavkar</h1>
+<h2 align="center">Hi 👋, I'm Rohit Bavkar</h2>
 <h3 align="center">Full Stack Developer</h3>
 
 ---
@@ -19,7 +19,6 @@
 #### **Languages**
 ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript)
 ![SQL](https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logo=mysql)
 
 #### **Frameworks & Libraries**
@@ -30,21 +29,10 @@
 #### **Cloud & DevOps**
 ![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes)
-![Vercel](https://img.shields.io/badge/Vercel-black?style=for-the-badge&logo=vercel)
 
 #### **Databases**
 ![MySQL](https://img.shields.io/badge/MySQL-00618A?style=for-the-badge&logo=mysql)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb)
-
----
-
-### 📊 GitHub Stats  
-<p align="center">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=RohitBavkar&show_icons=true&theme=github_dark" />
-  <img width="48%" src="https://github-readme-streak-stats.herokuapp.com/?user=RohitBavkar&theme=github-dark" />
-</p>
 
 ---
 
