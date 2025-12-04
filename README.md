@@ -10,9 +10,9 @@ Full Stack Developer
 
 ### Tech I Use
 Java • Spring Boot • JavaScript  
-React • Next.js 
-MySQL • PostgreSQL
-Docker • AWS
+React • Next.js  
+MySQL • PostgreSQL  
+Docker • AWS  
 
 ---
 
