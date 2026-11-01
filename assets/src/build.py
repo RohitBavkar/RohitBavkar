@@ -12,9 +12,11 @@ Edit the CONTENT block below, then run:
     python3 assets/src/build.py
 """
 import base64
+import hashlib
 import html
 import io
 import os
+import re
 
 from fontTools import subset
 from fontTools.ttLib import TTFont
@@ -484,6 +486,24 @@ def footer():
     s.save("footer")
 
 
+def stamp_readme():
+    """Add ?v=<content hash> to every assets/*.svg link in README.md so
+    browsers and GitHub's image cache fetch the new version after a change."""
+    path = os.path.join(os.path.dirname(OUT), "README.md")
+    with open(path) as fh:
+        text = fh.read()
+
+    def repl(m):
+        with open(os.path.join(OUT, m.group(1) + ".svg"), "rb") as fh:
+            digest = hashlib.sha1(fh.read()).hexdigest()[:8]
+        return f"assets/{m.group(1)}.svg?v={digest}"
+
+    text = re.sub(r"assets/([\w-]+)\.svg(?:\?v=[0-9a-f]+)?", repl, text)
+    with open(path, "w") as fh:
+        fh.write(text)
+    print("stamped README.md")
+
+
 if __name__ == "__main__":
     for old in os.listdir(OUT):
         if old.endswith(".svg"):
@@ -496,3 +516,4 @@ if __name__ == "__main__":
     cta()
     buttons()
     footer()
+    stamp_readme()
