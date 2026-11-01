@@ -24,6 +24,7 @@ from fontTools.ttLib import TTFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
 FONT_DIR = os.path.join(HERE, "fonts")
+ICON_DIR = os.path.join(HERE, "icons")   # logos from Devicon (MIT) and Simple Icons (CC0)
 
 # ---------------------------------------------------------------- content ---
 
@@ -39,13 +40,13 @@ INTRO = [
 MARQUEE = [("Java", "#f97316"), ("Spring Boot", "#6ad04b"), ("Spring", "#86d64a"),
            ("Hibernate", "#c9b56a"), ("MySQL", "#4f9cf0")]
 
-# (label, glyph, gradient top, gradient bottom)
+# (label, logo file in assets/src/icons, fill for single-colour logos or None)
 TECH = [
-    ("Java", "J", "#fdba74", "#f97316"),
-    ("Spring Boot", "SB", "#86efac", "#22c55e"),
-    ("Spring", "S", "#bef264", "#65a30d"),
-    ("Hibernate", "H", "#e9dcb0", "#b8a46a"),
-    ("MySQL", "SQL", "#93c5fd", "#3b82f6"),
+    ("Java", "java", None),
+    ("Spring Boot", "springboot", "#6db33f"),
+    ("Spring", "spring", "#6db33f"),
+    ("Hibernate", "hibernate", None),
+    ("MySQL", "mysql", None),
 ]
 
 # (icon, title, subtitle)
@@ -229,6 +230,18 @@ def icon(kind, x, y, colour, size=18):
     return f'<g transform="translate({x:.1f} {y:.1f}) scale({k:.3f})">{paths[kind]}</g>'
 
 
+def logo(name, x, y, size, fill=None):
+    """Inline a logo SVG from ICON_DIR into a size x size box at (x, y)."""
+    with open(os.path.join(ICON_DIR, name + ".svg")) as fh:
+        src = fh.read()
+    view = re.search(r'viewBox="([^"]+)"', src).group(1)
+    inner = re.sub(r"(?s)^.*?<svg[^>]*>|</svg>\s*$", "", src)
+    inner = re.sub(r"(?s)<title>.*?</title>", "", inner)
+    f = f' fill="{fill}"' if fill else ""
+    return (f'<svg x="{x:.1f}" y="{y:.1f}" width="{size}" height="{size}" '
+            f'viewBox="{view}"><g{f}>{inner}</g></svg>')
+
+
 # --------------------------------------------------------------- sections ---
 
 def hero():
@@ -314,20 +327,14 @@ def stack_and_now():
             s.text(x + 16, y + th / 2 - 3, "+ always", "M", 400, 12.5, MUTED)
             s.text(x + 16, y + th / 2 + 15, "learning", "M", 400, 12.5, MUTED)
             continue
-        label, glyph, top, bottom = t
+        label, name, fill = t
         card(s, x, y, tw, th, fill=INSET, stroke=INSET_BORDER, r=12)
-        gid = f"t{i}"
-        s.defs.append(f'<linearGradient id="{gid}" x1="0" y1="0" x2="0" y2="1">'
-                      f'<stop offset="0" stop-color="{top}"/><stop offset="1" stop-color="{bottom}"/>'
-                      '</linearGradient>')
-        isz = 34
-        ix, iy = x + 10, y + (th - isz) / 2
-        s.add(f'<rect x="{ix}" y="{iy}" width="{isz}" height="{isz}" rx="10" fill="url(#{gid})"/>')
-        gs = {1: 15, 2: 12.5, 3: 10}[len(glyph)]
-        s.text(ix + isz / 2, iy + isz / 2 + gs * .36, glyph, "M", 500, gs, "#1b1208",
-               anchor="middle")
-        room = tw - (isz + 10 + 9) - 6
-        fs = 15.5
+        isz = 46
+        ix, iy = x + 14, y + (th - isz) / 2
+        s.add(f'<rect x="{ix}" y="{iy}" width="{isz}" height="{isz}" rx="12" fill="#f6f6f7"/>')
+        s.add(logo(name, ix + 8, iy + 8, isz - 16, fill))
+        room = tw - (isz + 14 + 12) - 6
+        fs = 17
         words = label.split()
         fits = measure(label, "B", 700, fs) <= room
         lines = [label] if fits or len(words) == 1 else [" ".join(words[:-1]), words[-1]]
@@ -335,7 +342,7 @@ def stack_and_now():
             fs -= .5
         ly = y + th / 2 + fs * .35 - (len(lines) - 1) * fs * .6
         for l in lines:
-            s.text(ix + isz + 9, ly, l, "B", 700, fs, TEXT, ls=-0.2)
+            s.text(ix + isz + 12, ly, l, "B", 700, fs, TEXT, ls=-0.2)
             ly += fs * 1.2
 
     x0, rw = lw + G, W - lw - G
