@@ -28,7 +28,7 @@ FONT_DIR = os.path.join(HERE, "fonts")
 # ---------------------------------------------------------------- content ---
 
 HANDLE = "rohitbavkar"
-ROLE = "Backend Engineer · Mumbai, India"
+ROLE = "Software Engineer · Mumbai, India"
 NAME = "Rohit Bavkar"
 # intro lines as (text, bold?) pieces
 INTRO = [
