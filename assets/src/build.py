@@ -267,17 +267,14 @@ def hero():
     s.add(f'<circle cx="{(W - pw) / 2 + 26:.1f}" cy="81.5" r="3.6" fill="{ORANGE}"/>')
     s.text((W - pw) / 2 + 44, 86.8, ROLE, "B", 600, 15, "#f4e9e1")
 
-    # name with a metallic gradient and an orange square full stop
+    # name with a metallic gradient
     s.defs.append('<linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">'
                   '<stop offset=".15" stop-color="#ffffff"/><stop offset="1" stop-color="#8f8f98"/>'
                   '</linearGradient>')
     size = 150
     ls = -size * .055
     nw = measure(NAME, "B", 800, size, ls)
-    sq = 26
-    x = (W - nw - sq - 6) / 2
-    s.text(x, 268, NAME, "B", 800, size, "url(#metal)", ls=ls)
-    s.add(f'<rect x="{x + nw + 6:.1f}" y="{268 - sq}" width="{sq}" height="{sq}" fill="{ORANGE}"/>')
+    s.text((W - nw + ls) / 2, 268, NAME, "B", 800, size, "url(#metal)", ls=ls)  # no spacing after last letter
 
     y = 340
     for line in INTRO:
