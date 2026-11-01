@@ -18,12 +18,13 @@
 
 ## 🧑‍💻 About Me
 
-- I build web applications end to end: **Java / Spring Boot** services, **React / Next.js** front ends, and the databases and cloud infrastructure underneath them.
-- 10+ years of experience taking features from design through to production.
-- I care about clean APIs, maintainable code, and shipping things that work.
-- 🔭 Currently working on: a **Student Management System** with Next.js, Spring Boot and PostgreSQL
-- 🌱 Currently exploring: **TypeScript**, **Tailwind CSS** and the **Next.js App Router**
-- 💬 Ask me about: Spring Boot, React, REST API design, SQL performance
+10+ years building web applications end to end, taking features from first design all the way to production.
+
+- ⚙️ **Backend:** REST APIs and services with Java and Spring Boot
+- 🖥️ **Frontend:** responsive, component-based UIs with React and Next.js
+- 🗄️ **Data:** schema design and query tuning in MySQL and PostgreSQL
+- ☁️ **Delivery:** containerised with Docker and deployed on AWS
+- ✅ **Focus:** clean APIs, maintainable code, and software that works in production
 
 ## 🛠️ Tech Stack
 
