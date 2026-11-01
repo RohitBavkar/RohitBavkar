@@ -51,15 +51,6 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
 
-## 🚀 Featured Projects
-
-| Project | Description | Tech | Demo |
-|---|---|---|---|
-| [Student Management System](https://github.com/RohitBavkar/sms-client) | School management app with role-based dashboards for admins, teachers, students and parents, plus attendance charts and a class calendar. A rebuild of my college project on a modern stack | Next.js · TypeScript · Tailwind · Spring Boot · PostgreSQL | 🚧 In progress |
-| [Investment Calculator](https://github.com/RohitBavkar/investment-calculator) | Projects investment growth year by year from your inputs | React · Vite | [Live ↗](https://rohitbavkar.github.io/investment-calculator/) |
-| [Tic Tac Toe](https://github.com/RohitBavkar/tic-tac-toe) | Two-player Tic Tac Toe with game log and editable player names | React · Vite | [Live ↗](https://rohitbavkar.github.io/tic-tac-toe/) |
-| [Timer Game](https://github.com/RohitBavkar/timer-game) | Stop-the-timer challenge built with React refs and portals | React · Vite | [Live ↗](https://rohitbavkar.github.io/timer-game/) |
-
 ## 📊 GitHub Stats
 
 <p align="center">
