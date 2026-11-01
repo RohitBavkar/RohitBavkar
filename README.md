@@ -14,7 +14,7 @@
   <img src="https://raw.githubusercontent.com/RohitBavkar/RohitBavkar/output/snake-dark.svg" width="100%" alt="Snake eating my contribution graph" />
 </picture>
 
-<img src="assets/cta.svg" width="100%" alt="Let's build something great. Backend, video, or a SaaS idea — say hi." />
+<img src="assets/cta.svg" width="100%" alt="Let's build something great. Backend, AI, or a SaaS idea — say hi." />
 
 <!-- Contact buttons: hidden until the links are filled in.
 <p><a href="YOUTUBE_URL"><img src="assets/btn-youtube.svg" width="25%" alt="YouTube · DEV" /></a><a href="LINKEDIN_URL"><img src="assets/btn-linkedin.svg" width="25%" alt="LinkedIn" /></a><a href="PORTFOLIO_URL"><img src="assets/btn-portfolio.svg" width="25%" alt="Portfolio & blog" /></a><a href="mailto:EMAIL"><img src="assets/btn-email.svg" width="25%" alt="Email" /></a></p>

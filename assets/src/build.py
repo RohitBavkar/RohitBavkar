@@ -37,7 +37,7 @@ INTRO = [
 MARQUEE = [("Java", "#f97316"), ("Spring Boot", "#6ad04b"), ("Spring", "#86d64a"),
            ("Hibernate", "#c9b56a"), ("MySQL", "#4f9cf0")]
 
-# (label, glyph or icon name, gradient top, gradient bottom)
+# (label, glyph, gradient top, gradient bottom)
 TECH = [
     ("Java", "J", "#fdba74", "#f97316"),
     ("Spring Boot", "SB", "#86efac", "#22c55e"),
@@ -65,7 +65,7 @@ SIDE_PROJECT = {
     "tags": ["Dokploy", "MySQL HeatWave", "Self-hosted"],
 }
 
-CTA = ("Let’s build", "something great", "Backend, video, or a SaaS idea — say hi.")
+CTA = ("Let’s build", "something great", "Backend, AI, or a SaaS idea — say hi.")
 
 BUTTONS = [("YouTube · DEV", "btn-youtube"), ("LinkedIn", "btn-linkedin"),
            ("Portfolio & blog", "btn-portfolio"), ("Email", "btn-email")]
@@ -223,9 +223,6 @@ def icon(kind, x, y, colour, size=18):
                   f'<path fill="{colour}" d="M14.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>'),
         "server": (f'<rect {a} x="2" y="2.5" width="14" height="5.5" rx="1.5"/>'
                    f'<rect {a} x="2" y="10" width="14" height="5.5" rx="1.5"/>'),
-        "film": (f'<rect {a} x="2" y="3" width="14" height="12" rx="2"/>'
-                 f'<path {a} d="M6 3v12M12 3v12"/>'),
-        "ae": (f'<path {a} d="M4 13l5-9 5 9M6 10h6"/>'),
     }
     return f'<g transform="translate({x:.1f} {y:.1f}) scale({k:.3f})">{paths[kind]}</g>'
 
@@ -324,12 +321,9 @@ def stack_and_now():
         isz = 34
         ix, iy = x + 10, y + (th - isz) / 2
         s.add(f'<rect x="{ix}" y="{iy}" width="{isz}" height="{isz}" rx="10" fill="url(#{gid})"/>')
-        if glyph.startswith("@"):
-            s.add(icon(glyph[1:], ix + 8, iy + 8, "#ffffff", 18))
-        else:
-            gs = {1: 15, 2: 12.5, 3: 10}[len(glyph)]
-            s.text(ix + isz / 2, iy + isz / 2 + gs * .36, glyph, "M", 500, gs, "#1b1208",
-                   anchor="middle")
+        gs = {1: 15, 2: 12.5, 3: 10}[len(glyph)]
+        s.text(ix + isz / 2, iy + isz / 2 + gs * .36, glyph, "M", 500, gs, "#1b1208",
+               anchor="middle")
         room = tw - (isz + 10 + 9) - 6
         fs = 15.5
         words = label.split()
