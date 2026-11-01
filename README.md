@@ -1,5 +1,5 @@
 <h1 align="center">Hi, I'm Rohit Bavkar 👋</h1>
-<h3 align="center">Senior Software Engineer · Java, Spring Boot & React · 10+ years</h3>
+<h3 align="center">Software Engineer · Java, Spring Boot & React · 10+ years</h3>
 
 <p align="center">
   📍 Mumbai, India
