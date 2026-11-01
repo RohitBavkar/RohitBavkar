@@ -1,5 +1,5 @@
 <h1 align="center">Hi, I'm Rohit Bavkar 👋</h1>
-<h3 align="center">Full Stack Developer · 10+ years building web applications end to end</h3>
+<h3 align="center">Senior Software Engineer · Java, Spring Boot & React · 10+ years</h3>
 
 <p align="center">
   📍 Mumbai, India
@@ -18,7 +18,7 @@
 
 ## 🧑‍💻 About Me
 
-- I build full stack products: **Java / Spring Boot** services, **React / Next.js** front ends, and the databases and cloud infrastructure underneath them.
+- I build web applications end to end: **Java / Spring Boot** services, **React / Next.js** front ends, and the databases and cloud infrastructure underneath them.
 - 10+ years of experience taking features from design through to production.
 - I care about clean APIs, maintainable code, and shipping things that work.
 - 🔭 Currently working on: a **Student Management System** with Next.js, Spring Boot and PostgreSQL
