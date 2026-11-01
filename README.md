@@ -6,10 +6,14 @@
 
 <img src="assets/toolkit.svg" width="100%" alt="Toolkit. Core stack: Java, Spring Boot, Spring, Hibernate, MySQL. Worked across: backend, full-stack, mobile, AI/ML. Off the keyboard: Premiere Pro and After Effects." />
 
+<!-- Selected work: hidden until the two repos are chosen.
 <img src="assets/selected-work.svg" width="100%" alt="Selected work" />
 
 <p><a href="REPO_1_URL"><img src="assets/work-1.svg" width="50%" alt="REPO_1" /></a><a href="REPO_2_URL"><img src="assets/work-2.svg" width="50%" alt="REPO_2" /></a></p>
+-->
 
 <img src="assets/outro.svg" width="100%" alt="Let's build something. Thanks for stopping by." />
 
+<!-- Contact buttons: hidden until the links are filled in.
 <p><a href="YOUTUBE_URL"><img src="assets/btn-youtube.svg" width="25.1%" alt="YouTube — DEV" /></a><a href="LINKEDIN_URL"><img src="assets/btn-linkedin.svg" width="14%" alt="LinkedIn" /></a><a href="PORTFOLIO_URL"><img src="assets/btn-portfolio.svg" width="19.5%" alt="Portfolio & blog" /></a><a href="mailto:EMAIL"><img src="assets/btn-email.svg" width="11.7%" alt="Email" /></a></p>
+-->
