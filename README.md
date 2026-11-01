@@ -2,7 +2,7 @@
 
 <img src="assets/hero.svg" width="100%" alt="Rohit Bavkar. Backend Engineer in Mumbai, India. 11 years building backend systems with Java and Spring Boot, across full-stack, mobile and AI/ML." />
 
-<img src="assets/stack.svg" width="100%" alt="Tech stack: Java, Spring Boot, Spring, Hibernate, MySQL, Premiere Pro, After Effects. Right now: revising Core Java and DSA, studying system design and design patterns, building a SaaS product, launching DEV, my YouTube channel." />
+<img src="assets/stack.svg" width="100%" alt="Tech stack: Java, Spring Boot, Spring, Hibernate, MySQL. Right now: revising Core Java and DSA, studying system design and design patterns, building a SaaS product, launching DEV, my YouTube channel." />
 
 <p><img src="assets/channel.svg" width="42.5%" alt="DEV, my YouTube channel, launching soon" /><img src="assets/side-project.svg" width="57.5%" alt="Side project: my own AI agent, Nous Research's Hermes, self-hosted on Oracle Cloud and talking to me over Discord. Built with Dokploy, MySQL HeatWave, self-hosted." /></p>
 

@@ -35,8 +35,7 @@ INTRO = [
 ]
 # (label, dot colour) for the scrolling strip under the intro
 MARQUEE = [("Java", "#f97316"), ("Spring Boot", "#6ad04b"), ("Spring", "#86d64a"),
-           ("Hibernate", "#c9b56a"), ("MySQL", "#4f9cf0"), ("Premiere Pro", "#8b7cf6"),
-           ("After Effects", "#c084fc")]
+           ("Hibernate", "#c9b56a"), ("MySQL", "#4f9cf0")]
 
 # (label, glyph or icon name, gradient top, gradient bottom)
 TECH = [
@@ -45,8 +44,6 @@ TECH = [
     ("Spring", "S", "#bef264", "#65a30d"),
     ("Hibernate", "H", "#e9dcb0", "#b8a46a"),
     ("MySQL", "SQL", "#93c5fd", "#3b82f6"),
-    ("Premiere Pro", "@film", "#c4b5fd", "#7c3aed"),
-    ("After Effects", "@ae", "#f5d0fe", "#c026d3"),
 ]
 
 # (icon, title, subtitle)
@@ -304,17 +301,19 @@ def stack_and_now():
     s = Svg(W, h, alt)
     card(s, 0, 0, lw, h)
     s.text(PAD, 50, "Tech stack", "B", 700, 22.5, TEXT, ls=-0.3)
-    s.text(lw - PAD, 48, "core · creative", "M", 400, 13, MUTED, anchor="end")
-    cols, gap = 4, 12
-    tw, th = (lw - 2 * PAD - (cols - 1) * gap) / cols, 76
+    s.text(lw - PAD, 48, "core", "M", 400, 13, MUTED, anchor="end")
+    cols, gap = 3, 12
     tiles = TECH + [None]
+    rows = -(-len(tiles) // cols)
+    tw = (lw - 2 * PAD - (cols - 1) * gap) / cols
+    th = min(96, (h - 82 - PAD - (rows - 1) * gap) / rows)  # fill the card height
     for i, t in enumerate(tiles):
         x = PAD + (i % cols) * (tw + gap)
         y = 82 + (i // cols) * (th + gap)
         if t is None:
             card(s, x, y, tw, th, fill="none", stroke=INSET_BORDER, r=12, dash="4 4")
-            s.text(x + 16, y + 34, "+ always", "M", 400, 12.5, MUTED)
-            s.text(x + 16, y + 52, "learning", "M", 400, 12.5, MUTED)
+            s.text(x + 16, y + th / 2 - 3, "+ always", "M", 400, 12.5, MUTED)
+            s.text(x + 16, y + th / 2 + 15, "learning", "M", 400, 12.5, MUTED)
             continue
         label, glyph, top, bottom = t
         card(s, x, y, tw, th, fill=INSET, stroke=INSET_BORDER, r=12)
@@ -331,10 +330,11 @@ def stack_and_now():
             gs = {1: 15, 2: 12.5, 3: 10}[len(glyph)]
             s.text(ix + isz / 2, iy + isz / 2 + gs * .36, glyph, "M", 500, gs, "#1b1208",
                    anchor="middle")
-        words = label.split()
-        lines = [label] if len(words) == 1 else [" ".join(words[:-1]), words[-1]]
         room = tw - (isz + 10 + 9) - 6
         fs = 15.5
+        words = label.split()
+        fits = measure(label, "B", 700, fs) <= room
+        lines = [label] if fits or len(words) == 1 else [" ".join(words[:-1]), words[-1]]
         while max(measure(l, "B", 700, fs) for l in lines) > room and fs > 12:
             fs -= .5
         ly = y + th / 2 + fs * .35 - (len(lines) - 1) * fs * .6
