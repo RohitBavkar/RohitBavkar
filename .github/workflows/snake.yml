@@ -20,9 +20,10 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+          # dots: empty cell, then four activity levels (orange profile theme)
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+            dist/snake-dark.svg?color_snake=#fb923c&color_dots=#1e1e23,#4a2410,#8a3a10,#d4570f,#f97316
+            dist/snake-light.svg?color_snake=#ea580c&color_dots=#ebedf0,#fed7aa,#fdba74,#fb923c,#ea580c
 
       - name: Publish to the output branch
         uses: crazy-max/ghaction-github-pages@v4
