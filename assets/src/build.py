@@ -53,8 +53,8 @@ TECH = [
 RIGHT_NOW = [
     ("briefcase", "Working at Cognizant", "as a Senior Software Engineer"),
     ("leaf", "Building a SaaS product", "my own, from idea to launch"),
-    ("spark", "Running my own AI agent", "Hermes on Oracle Cloud"),
-    ("chat", "Open to collaborations", "backend, AI or SaaS ideas"),
+    ("spark", "Shipping with AI tools", "agents in my daily workflow"),
+    ("compass", "Saying yes to side quests", "weekend builds & experiments"),
 ]
 
 CHANNEL = ("YOUTUBE · LAUNCHING SOON", "DEV — my channel")
@@ -224,6 +224,8 @@ def icon(kind, x, y, colour, size=18):
         "play": (f'<rect {a} x="1" y="3" width="16" height="12" rx="3"/>'
                  f'<path fill="{colour}" d="M7.5 6.5v5l4.2-2.5z"/>'),
         "chat": f'<path {a} d="M3 9a6 6 0 1 1 3 5.2L2.5 15.5 3.6 12A6 6 0 0 1 3 9z"/>',
+        "compass": (f'<circle {a} cx="9" cy="9" r="7.5"/>'
+                    f'<path {a} d="M12 6l-1.8 4.2L6 12l1.8-4.2z"/>'),
         "spark": (f'<path fill="{colour}" d="M9 1.5l1.6 4.9L15.5 8l-4.9 1.6L9 14.5 7.4 9.6 2.5 8l4.9-1.6z"/>'
                   f'<path fill="{colour}" d="M14.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>'),
         "server": (f'<rect {a} x="2" y="2.5" width="14" height="5.5" rx="1.5"/>'
