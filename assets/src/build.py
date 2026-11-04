@@ -51,10 +51,10 @@ TECH = [
 
 # (icon, title, subtitle)
 RIGHT_NOW = [
-    ("book", "Revising Core Java & DSA", "Striver’s A2Z sheet"),
-    ("layers", "Studying system design", "and design patterns"),
-    ("leaf", "Building a SaaS product", "a product of my own"),
-    ("play", "Launching DEV", "my YouTube channel"),
+    ("briefcase", "Working at Cognizant", "as a Senior Software Engineer"),
+    ("leaf", "Building a SaaS product", "my own, from idea to launch"),
+    ("layers", "Sharpening system design", "design patterns, Core Java & DSA"),
+    ("play", "Launching DEV on YouTube", "my channel, coming soon"),
 ]
 
 CHANNEL = ("YOUTUBE · LAUNCHING SOON", "DEV — my channel")
@@ -217,6 +217,8 @@ def icon(kind, x, y, colour, size=18):
          f'stroke-linecap="round" stroke-linejoin="round"')
     paths = {
         "book": f'<path {a} d="M4 2h10v15l-5-3.5-5 3.5z"/>',
+        "briefcase": (f'<rect {a} x="1.5" y="5" width="15" height="11" rx="2"/>'
+                      f'<path {a} d="M6 5V3.5A1.5 1.5 0 0 1 7.5 2h3A1.5 1.5 0 0 1 12 3.5V5M1.5 10h15"/>'),
         "layers": f'<path {a} d="M9 2l8 4.5-8 4.5-8-4.5zM1 10.5l8 4.5 8-4.5"/>',
         "leaf": f'<path {a} d="M3 16c0-8 5-13 13-14 0 8-4 13-12 13M3 16l6-6"/>',
         "play": (f'<rect {a} x="1" y="3" width="16" height="12" rx="3"/>'
