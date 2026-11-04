@@ -657,5 +657,5 @@ if __name__ == "__main__":
     # products()   # hidden for now; re-enable and add assets/products.svg to README.md
     cta()
     buttons()
-    footer()
+    # footer()   # removed from README for now
     stamp_readme()
