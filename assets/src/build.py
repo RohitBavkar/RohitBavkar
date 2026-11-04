@@ -616,11 +616,14 @@ def buttons():
 
 
 def footer():
-    h = 60
-    s = Svg(W, h, f"github.com/{HANDLE} — Made in Mumbai, IST")
-    s.add(f'<line x1="0" x2="{W}" y1="8.5" y2="8.5" stroke="{EDGE}" stroke-opacity=".35"/>')
-    s.text(0, 44, f"github.com/{HANDLE}", "M", 400, 14, EDGE)
-    s.text(W, 44, "Made in Mumbai · IST", "M", 400, 14, EDGE, anchor="end")
+    """Divider + left-hand footer text. The right-hand profile-views counter
+    is komarev's live badge, placed next to this image in README.md."""
+    line = Svg(W, 2, "")
+    line.add(f'<line x1="0" x2="{W}" y1="1" y2="1" stroke="{EDGE}" stroke-opacity=".35"/>')
+    line.save("footer-line")
+    w, h = 720, 30
+    s = Svg(w, h, f"© {NAME} · Mumbai, India")
+    s.text(0, 20, f"© {NAME} · Mumbai, India", "M", 400, 14, EDGE)
     s.save("footer")
 
 
