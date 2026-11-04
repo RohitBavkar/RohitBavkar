@@ -29,7 +29,7 @@ ICON_DIR = os.path.join(HERE, "icons")   # logos from Devicon (MIT) and Simple I
 # ---------------------------------------------------------------- content ---
 
 HANDLE = "rohitbavkar"
-ROLE = "Open to new opportunities · Mumbai, India"
+ROLE = "Open to new opportunities"
 NAME = "Rohit Bavkar"
 # intro lines as (text, bold?) pieces
 INTRO = [
