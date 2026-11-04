@@ -4,7 +4,7 @@
 GitHub READMEs can't use custom CSS or fonts, so each section is drawn as an
 SVG with its fonts subset and embedded. Card rows have transparent
 backgrounds so they sit on GitHub's own page colour in light and dark mode.
-The contribution snake is generated separately by .github/workflows/snake.yml.
+The contribution card is built by .github/workflows/snake.yml (snake + --activity).
 
 Edit the CONTENT block below, then run:
 
@@ -465,13 +465,29 @@ def side_project():
     s.save("side-project")
 
 
-def activity_header():
-    h = 74
-    s = Svg(W, h, "Contribution activity")
+def activity_card(snake_path, out_path):
+    """Wrap the snake SVG made by Platane/snk in the Contribution activity
+    card. Run by .github/workflows/snake.yml after each snake update."""
+    with open(snake_path) as fh:
+        snake = fh.read()
+    view = re.search(r'viewBox="([^"]+)"', snake).group(1)
+    vx, vy, vw, vh = (float(v) for v in view.split())
+    vy, vh = vy + 8, vh - 32          # trim snk's spare margin above/below the grid
+    view = f"{vx:g} {vy:g} {vw:g} {vh:g}"
+    inner = re.sub(r"(?s)^.*?<svg[^>]*>|</svg>\s*$", "", snake)
+    gw = W - 2 * PAD + 20
+    gh = gw * vh / vw
+    top = 62
+    h = round(top + gh + 14)
+    s = Svg(W, h, "Contribution activity: a snake eating my GitHub contribution graph")
     card(s, 0, 0, W, h)
-    s.text(PAD, 46, "Contribution activity", "B", 700, 22.5, TEXT, ls=-0.3)
-    s.text(W - PAD, 44, f"live on github.com/{HANDLE}", "M", 400, 13, MUTED, anchor="end")
-    s.save("activity")
+    s.text(PAD, 50, "Contribution activity", "B", 700, 22.5, TEXT, ls=-0.3)
+    s.text(W - PAD, 48, f"live on github.com/{HANDLE}", "M", 400, 13, MUTED, anchor="end")
+    s.add(f'<svg x="{PAD - 10}" y="{top}" width="{gw:.1f}" height="{gh:.1f}" '
+          f'viewBox="{view}">{inner}</svg>')
+    with open(out_path, "w") as fh:
+        fh.write(s.render())
+    print("wrote", out_path)
 
 
 def cta():
@@ -541,6 +557,10 @@ def stamp_readme():
 
 
 if __name__ == "__main__":
+    import sys
+    if sys.argv[1:2] == ["--activity"]:
+        activity_card(sys.argv[2], sys.argv[3])
+        sys.exit()
     for old in os.listdir(OUT):
         if old.endswith(".svg"):
             os.remove(os.path.join(OUT, old))
@@ -549,7 +569,6 @@ if __name__ == "__main__":
     stack_and_now()
     channel()
     side_project()
-    activity_header()
     cta()
     buttons()
     footer()
