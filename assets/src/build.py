@@ -57,6 +57,15 @@ RIGHT_NOW = [
     ("compass", "Saying yes to side quests", "weekend builds & experiments"),
 ]
 
+# numbered points; each is (text, bold?) pieces
+ABOUT = [
+    [("Senior Software Engineer", True), (" with 11+ years of building production software.", False)],
+    [("Backend first:", True), (" Java, Spring Boot, Hibernate and MySQL are home base.", False)],
+    [("Full range:", True), (" I also ship across web, mobile and AI/ML.", False)],
+    [("Looking for:", True), (" product teams and startups that ship fast.", False)],
+    [("Based in", False), (" Mumbai, India", True), (" (IST).", False)],
+]
+
 CHANNEL = ("YOUTUBE · LAUNCHING SOON", "DEV — my channel")
 
 SIDE_PROJECT = {
@@ -306,6 +315,25 @@ def hero():
     s.save("hero")
 
 
+def about():
+    row, top = 54, 30
+    h = top * 2 + row * len(ABOUT)
+    alt = "About me: " + " ".join("".join(t for t, _ in p) for p in ABOUT)
+    s = Svg(W, h, alt)
+    card(s, 0, 0, W, h)
+    s.text(PAD, 64, "About me", "B", 700, 22.5, TEXT, ls=-0.3)
+    s.text(PAD, 90, "the short version", "M", 400, 13, MUTED)
+    lx = 300
+    for i, parts in enumerate(ABOUT):
+        y = top + i * row
+        if i:
+            s.add(f'<line x1="{lx}" x2="{W - PAD}" y1="{y + .5}" y2="{y + .5}" stroke="{BORDER}"/>')
+        base = y + row / 2 + 6
+        s.text(lx, base - 1, f"{i + 1:02d}", "M", 500, 14, ORANGE)
+        s.rich(lx + 40, base, [(t, TEXT if b else SUB, "B", 700 if b else 400) for t, b in parts], 17.5)
+    s.save("about")
+
+
 def stack_and_now():
     h = 340
     lw = 640
@@ -517,6 +545,7 @@ if __name__ == "__main__":
         if old.endswith(".svg"):
             os.remove(os.path.join(OUT, old))
     hero()
+    about()
     stack_and_now()
     channel()
     side_project()
