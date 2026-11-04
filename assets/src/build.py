@@ -655,7 +655,7 @@ if __name__ == "__main__":
     stack_and_now()
     channel()
     side_project()
-    products()
+    # products()   # hidden for now; re-enable and add assets/products.svg to README.md
     cta()
     buttons()
     footer()
