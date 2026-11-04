@@ -33,7 +33,7 @@ ROLE = "Software Engineer · Mumbai, India"
 NAME = "Rohit Bavkar"
 # intro lines as (text, bold?) pieces
 INTRO = [
-    [("11 years building backend systems with ", False), ("Java & Spring Boot", True), (" —", False)],
+    [("11 years shipping backend products with ", False), ("Java & Spring Boot", True), (" —", False)],
     [("across full-stack, mobile and AI/ML.", False)],
 ]
 # (label, dot colour) for the scrolling strip under the intro
@@ -62,7 +62,7 @@ ABOUT = [
     [("Senior Software Engineer", True), (" with 11+ years of building production software.", False)],
     [("Backend first:", True), (" Java, Spring Boot, Hibernate and MySQL are home base.", False)],
     [("Full range:", True), (" I also ship across web, mobile and AI/ML.", False)],
-    [("Looking for:", True), (" product teams and startups that ship fast.", False)],
+    [("Product-minded:", True), (" I own features end to end, from idea to real users.", False)],
     [("Based in", False), (" Mumbai, India", True), (" (IST).", False)],
 ]
 
@@ -94,7 +94,7 @@ PRODUCTS = [
      ["Python", "LLMs", "Spring AI"]),
 ]
 
-CTA = ("Let’s build", "something great", "Backend, AI, or a SaaS idea — say hi.")
+CTA = ("Let’s build", "something great", "Got a product to build or scale? Say hi.")
 
 BUTTONS = [("YouTube · DEV", "btn-youtube"), ("LinkedIn", "btn-linkedin"),
            ("Portfolio & blog", "btn-portfolio"), ("Email", "btn-email")]
