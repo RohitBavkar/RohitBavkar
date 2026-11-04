@@ -29,7 +29,7 @@ ICON_DIR = os.path.join(HERE, "icons")   # logos from Devicon (MIT) and Simple I
 # ---------------------------------------------------------------- content ---
 
 HANDLE = "rohitbavkar"
-ROLE = "Software Engineer · Mumbai, India"
+ROLE = "Open to new opportunities · Mumbai, India"
 NAME = "Rohit Bavkar"
 # intro lines as (text, bold?) pieces
 INTRO = [
@@ -298,8 +298,12 @@ def hero():
     pw = measure(ROLE, "B", 600, 15) + 66
     s.add(f'<rect x="{(W - pw) / 2:.1f}" y="62.5" width="{pw:.1f}" height="38" rx="19" '
           f'fill="#1c120c" fill-opacity=".85" stroke="#5a2a10"/>')
-    s.add(f'<circle cx="{(W - pw) / 2 + 26:.1f}" cy="81.5" r="7" fill="{ORANGE}" fill-opacity=".25"/>')
-    s.add(f'<circle cx="{(W - pw) / 2 + 26:.1f}" cy="81.5" r="3.6" fill="{ORANGE}"/>')
+    # green "available" dot with a soft pulse
+    s.add(f'<circle cx="{(W - pw) / 2 + 26:.1f}" cy="81.5" r="4" fill="{GREEN}" fill-opacity=".35">'
+          '<animate attributeName="r" values="4;10" dur="2s" repeatCount="indefinite"/>'
+          '<animate attributeName="fill-opacity" values=".45;0" dur="2s" repeatCount="indefinite"/>'
+          '</circle>')
+    s.add(f'<circle cx="{(W - pw) / 2 + 26:.1f}" cy="81.5" r="3.6" fill="{GREEN}"/>')
     s.text((W - pw) / 2 + 44, 86.8, ROLE, "B", 600, 15, "#f4e9e1")
 
     # name with a metallic gradient
