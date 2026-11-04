@@ -34,6 +34,7 @@ jobs:
 
       - name: Wrap the snake in the Contribution activity card
         run: |
+          sudo chown -R "$(id -u):$(id -g)" dist   # snk's container writes dist/ as root
           pip install --quiet fonttools brotli
           python3 assets/src/build.py --activity dist/snake-dark.svg dist/activity.svg
 
