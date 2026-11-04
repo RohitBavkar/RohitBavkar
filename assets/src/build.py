@@ -77,6 +77,23 @@ SIDE_PROJECT = {
     "tags": ["Dokploy", "MySQL HeatWave", "Self-hosted"],
 }
 
+# PLACEHOLDER products — replace with real ones.
+# (icon, name, status "building" | "shipped", description, tags)
+PRODUCTS = [
+    ("receipt", "Ledgerly", "building",
+     "Invoicing and payment tracking for freelancers and small agencies.",
+     ["Spring Boot", "MySQL", "Next.js"]),
+    ("calendar", "Queueless", "shipped",
+     "Online appointment booking with reminders for clinics and salons.",
+     ["Java", "Hibernate", "React Native"]),
+    ("pulse", "Pulse", "shipped",
+     "Uptime monitoring with instant alerts on Discord and email.",
+     ["Spring Boot", "Docker", "Oracle Cloud"]),
+    ("spark", "Scribe AI", "building",
+     "AI meeting notes that turn calls into summaries and action items.",
+     ["Python", "LLMs", "Spring AI"]),
+]
+
 CTA = ("Let’s build", "something great", "Backend, AI, or a SaaS idea — say hi.")
 
 BUTTONS = [("YouTube · DEV", "btn-youtube"), ("LinkedIn", "btn-linkedin"),
@@ -237,6 +254,11 @@ def icon(kind, x, y, colour, size=18):
                     f'<path {a} d="M12 6l-1.8 4.2L6 12l1.8-4.2z"/>'),
         "spark": (f'<path fill="{colour}" d="M9 1.5l1.6 4.9L15.5 8l-4.9 1.6L9 14.5 7.4 9.6 2.5 8l4.9-1.6z"/>'
                   f'<path fill="{colour}" d="M14.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>'),
+        "receipt": (f'<path {a} d="M4 1.5h10v15l-2-1.3-1.7 1.3L9 15.2l-1.3 1.3L6 15.2l-2 1.3z"/>'
+                    f'<path {a} d="M6.5 6h5M6.5 9h5M6.5 12h3"/>'),
+        "calendar": (f'<rect {a} x="2" y="3.5" width="14" height="12.5" rx="2"/>'
+                     f'<path {a} d="M2 7.5h14M6 2v3M12 2v3"/>'),
+        "pulse": f'<path {a} d="M1 9.5h3.5l2-5 3.5 10 2-5H17"/>',
         "server": (f'<rect {a} x="2" y="2.5" width="14" height="5.5" rx="1.5"/>'
                    f'<rect {a} x="2" y="10" width="14" height="5.5" rx="1.5"/>'),
     }
@@ -489,6 +511,71 @@ def activity_card(snake_path, out_path):
     print("wrote", out_path)
 
 
+def products():
+    cols, gap, top = 2, 16, 84
+    tw = (W - 2 * PAD - (cols - 1) * gap) / cols
+    th = 162
+    rows = -(-len(PRODUCTS) // cols)
+    h = top + rows * th + (rows - 1) * gap + PAD
+    alt = "Products: " + "; ".join(f"{n} ({st}) — {d}" for _, n, st, d, _ in PRODUCTS)
+    s = Svg(W, h, alt)
+    card(s, 0, 0, W, h)
+    s.text(PAD, 52, "Products", "B", 700, 22.5, TEXT, ls=-0.3)
+    # legend
+    lx = W - PAD
+    for label, colour in (("shipped", GREEN), ("building", ORANGE)):
+        lw = measure(label, "M", 400, 13)
+        s.text(lx, 50, label, "M", 400, 13, MUTED, anchor="end")
+        s.add(f'<circle cx="{lx - lw - 10:.1f}" cy="45.5" r="3.5" fill="{colour}"/>')
+        lx -= lw + 34
+    for i, (kind, name, status, desc, tags) in enumerate(PRODUCTS):
+        x = PAD + (i % cols) * (tw + gap)
+        y = top + (i // cols) * (th + gap)
+        card(s, x, y, tw, th, fill=INSET, stroke=INSET_BORDER, r=14)
+        shipped = status == "shipped"
+        colour = GREEN if shipped else ORANGE
+        s.add(f'<rect x="{x + 20}" y="{y + 20}" width="44" height="44" rx="11" '
+              f'fill="{"#0c2416" if shipped else "#24150b"}" '
+              f'stroke="{"#1f6b3c" if shipped else "#7c2d12"}"/>')
+        s.add(icon(kind, x + 31, y + 31, colour, 22))
+        s.text(x + 78, y + 41, name, "B", 800, 21, TEXT, ls=-0.4)
+        # status pill
+        label = "Shipped" if shipped else "Building"
+        pw = measure(label, "M", 500, 12) + 32
+        px = x + 78 + measure(name, "B", 800, 21, -0.4) + 12
+        s.add(f'<rect x="{px:.1f}" y="{y + 25.5}" width="{pw:.1f}" height="22" rx="11" '
+              f'fill="{"#0c2416" if shipped else "#24150b"}" '
+              f'stroke="{"#1f6b3c" if shipped else "#7c2d12"}"/>')
+        dot = f'<circle cx="{px + 12:.1f}" cy="{y + 36.5}" r="3" fill="{colour}"'
+        if not shipped:
+            dot += ('><animate attributeName="opacity" values="1;.25;1" dur="1.6s" '
+                    'repeatCount="indefinite"/></circle>')
+        else:
+            dot += "/>"
+        s.add(dot)
+        s.text(px + 20, y + 40.5, label, "M", 500, 12, colour)
+        arrow(s, x + tw - 32, y + 24, MUTED)
+        # description, wrapped
+        words, line, ly = desc.split(), "", y + 72
+        lines = []
+        for wd in words:
+            trial = f"{line} {wd}".strip()
+            if line and measure(trial, "B", 400, 15.5) > tw - 98:
+                lines.append(line)
+                line = wd
+            else:
+                line = trial
+        lines.append(line)
+        for ln in lines[:2]:
+            s.text(x + 78, ly, ln, "B", 400, 15.5, SUB)
+            ly += 22
+        # tags
+        tx = x + 78
+        for t in tags:
+            tx += soft_pill(s, tx, y + th - 28, t, 12.5, 26, 600) + 6
+    s.save("products")
+
+
 def cta():
     h = 230
     s = Svg(W, h, f"{CTA[0]} {CTA[1]}. {CTA[2]}")
@@ -568,6 +655,7 @@ if __name__ == "__main__":
     stack_and_now()
     channel()
     side_project()
+    products()
     cta()
     buttons()
     footer()
