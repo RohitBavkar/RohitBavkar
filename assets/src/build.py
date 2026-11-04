@@ -482,7 +482,6 @@ def activity_card(snake_path, out_path):
     s = Svg(W, h, "Contribution activity: a snake eating my GitHub contribution graph")
     card(s, 0, 0, W, h)
     s.text(PAD, 50, "Contribution activity", "B", 700, 22.5, TEXT, ls=-0.3)
-    s.text(W - PAD, 48, f"live on github.com/{HANDLE}", "M", 400, 13, MUTED, anchor="end")
     s.add(f'<svg x="{PAD - 10}" y="{top}" width="{gw:.1f}" height="{gh:.1f}" '
           f'viewBox="{view}">{inner}</svg>')
     with open(out_path, "w") as fh:

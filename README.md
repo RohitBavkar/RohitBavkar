@@ -8,7 +8,7 @@
 
 <p><img src="assets/channel.svg?v=df061188" width="42.5%" alt="DEV, my YouTube channel, launching soon" /><img src="assets/side-project.svg?v=bfba1d52" width="57.5%" alt="Side project: my own AI agent, Nous Research's Hermes, self-hosted on Oracle Cloud and talking to me over Discord. Built with Dokploy, MySQL HeatWave, self-hosted." /></p>
 
-<img src="https://raw.githubusercontent.com/RohitBavkar/RohitBavkar/output/activity.svg" width="100%" alt="Contribution activity: a snake eating my GitHub contribution graph" />
+<img src="https://raw.githubusercontent.com/RohitBavkar/RohitBavkar/output/activity.svg?v=2" width="100%" alt="Contribution activity: a snake eating my GitHub contribution graph" />
 
 <img src="assets/cta.svg?v=32cc999a" width="100%" alt="Let's build something great. Backend, AI, or a SaaS idea — say hi." />
 
