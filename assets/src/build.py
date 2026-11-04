@@ -53,8 +53,8 @@ TECH = [
 RIGHT_NOW = [
     ("briefcase", "Working at Cognizant", "as a Senior Software Engineer"),
     ("leaf", "Building a SaaS product", "my own, from idea to launch"),
-    ("layers", "Sharpening system design", "design patterns, Core Java & DSA"),
-    ("play", "Launching DEV on YouTube", "my channel, coming soon"),
+    ("spark", "Running my own AI agent", "Hermes on Oracle Cloud"),
+    ("chat", "Open to collaborations", "backend, AI or SaaS ideas"),
 ]
 
 CHANNEL = ("YOUTUBE · LAUNCHING SOON", "DEV — my channel")
